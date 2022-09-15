@@ -1,0 +1,315 @@
+FileSystems Homework Template
+
+Last Name: Ginn  First Name: Joshua 
+
+Date: 02/12/2022
+
+===============================================================================
+Instructions: 
+
+- You should do your work in the ssh and then cut and paste
+  your answers into this document.
+
+- Use the Secure Shell Extension for Chrome and log into
+  login.cloud.wpcarey.asu.edu using your login credentials
+
+- run the restore_practice program to start out with a clean practice tree
+
+    dmazzola@login:16 restore_practice
+    /home/dmazzola
+    /usr/local/bin/restore_practice: about to remove ~/practice
+    completed!
+    About to install a clean copy of ~/practice fileystem
+    ./practice/
+    ./practice/.hidden_file
+    ...
+    ./practice/code/main.css
+    practice tree installation completed with no errors!
+
+- A visual representation of the practice tree is a the bottom
+
+- Read each question completely. 
+
+- Use this text file as a template for all of your answers 
+  (copy this entire document and use it for your answers)
+
+- Do not convert this to any other file format than plain ascii text
+
+- I recommend Sublime Text or Visual Studio Code
+  
+- Show your work, notice how I have filled in questions -1 and 0.
+  I have shown my results in a similar way in which you might solve an 
+  geometric proof. I have also commented it. 
+
+- Only show work that gets to the answer, don't paste any typo's, just
+  the commands that worked
+
+- Rubric is posted on the course website
+
+- Submit your completed template on the course website as H03.txt
+
+===============================================================================
+
+-1)  When you log in, what directory are you in?  How do you find out?
+
+dmazzola@login:262 pwd              # print working directory
+/home/dmazzola
+
+-------------------------------------------------------------------------------
+0)  Starting from your home directory, change your current working
+    directory to the practice directory.
+
+dmazzola@login:811 cd			# go home
+dmazzola@login:812 pwd			# show current directory
+/home/dmazzola
+dmazzola@login:813 cd practice/
+dmazzola@login:815 pwd
+/home/dmazzola/practice
+dmazzola@login:816 
+-------------------------------------------------------------------------------
+1)  Go to your home directory and change to the practice directory.
+    What cd commands will return you to your home directory?  
+	(list at least 4 possible ways).
+
+option #1:
+    jdginn@login:273 cd ..  # Change Directory (cd) to Parent Directory
+option #2:
+    jdginn@login:280 cd ~   # cd to my home directory
+option #3:
+    jdginn@login:283 cd -   # cd to previous directory
+option #4:
+    jdginn@login:284 cd     # cd to home directory
+-------------------------------------------------------------------------------
+2)  Look at the Practice File System Tree
+    a) Find the directory called "pure" in the diagram. 
+    b) Change your working directory to your home directory
+	  c) Starting from your home directory, how would you change your 
+       working directory to the "pure" directory? 
+       (list at least 2 possible ways)
+
+option #1:
+    jdginn@login:302 cd /home/jdginn/practice/matter/pure/  # cd with absolute Path
+option #2:
+    jdginn@login:293 cd ./practice/matter/pure              # cd with relative path
+-------------------------------------------------------------------------------
+3)  Again, look at the diagram, find the "states" directory.
+    Starting from the pure directory, how would you change to the
+    states directory (list at least 2 possible ways)
+
+option #1:
+    jdginn@login:295 cd ../states/                  # cd back to parent directory, then to states directory
+option #2:
+    jdginn@login:300 cd /home/jdginn/practice/matter/states/        # cd to states dir using absolute pathname
+
+-------------------------------------------------------------------------------
+4)  Starting from the pure directory, how would you list the contents
+    of the current directory? 
+
+    jdginn@login:304 ll     # Long List 
+    
+-------------------------------------------------------------------------------
+5)  Starting from the pure directory, how would you list the contents
+    of the parent directory (list at least 2 possible ways)
+
+option #1: 
+    jdginn@login:308 ll ..  # Long Lists parent directory
+option #2:
+    jdginn@login:310 ls -laF /home/jdginn/practice/matter/    # Lists withs options, absolute pathname for parent dir
+-------------------------------------------------------------------------------
+6)  Starting from the pure directory, what directory would you be in
+    if you entered the command:    cd ../../..
+
+    /home/jdginn
+-------------------------------------------------------------------------------
+7)  Change your working directory to ~/practice.  
+    a) Make a new directory called "newdir".  
+    b) Prove that it exists by making newdir the current directory
+    c) prove that you are in that directory
+
+    a) jdginn@login:316 mkdir newdir        # makes new dir "newdir"
+    b) jdginn@login:317 cd newdir           # cd to directory
+    c) jdginn@login:319 pwd                 # Prints working directory
+        /home/jdginn/practice/newdir
+
+-------------------------------------------------------------------------------
+8)  Starting from 7c
+    a) Copy the file ~/practice/database/likes to the current directory
+    b) list all of the files in the current directory to prove the copy worked
+
+    a)jdginn@login:320 cp ~/practice/database/likes /home/jdginn/practice/newdir/   # Copies file "likes to newdir with absolute pathname
+    b)jdginn@login:321 ll           
+        total 4
+        drwxr-xr-x 2 jdginn users  19 Feb 13 05:04 ./
+        drwxr-xr-x 8 jdginn users 112 Feb 13 04:59 ../
+        -rw-r--r-- 1 jdginn users  90 Feb 13 05:04 likes
+-------------------------------------------------------------------------------
+9) Starting from 8b
+    a) rename likes to likes.csv
+    b) list all of the files in the current directory to prove it
+
+    a) jdginn@login:322 mv likes likes.csv          # renames likes file to likes.csv
+    b) jdginn@login:323 ll
+        total 4
+        drwxr-xr-x 2 jdginn users  23 Feb 13 05:06 ./
+        drwxr-xr-x 8 jdginn users 112 Feb 13 04:59 ../
+        -rw-r--r-- 1 jdginn users  90 Feb 13 05:04 likes.csv
+
+-------------------------------------------------------------------------------
+10) Starting from 9b
+    a) remove likes.csv
+    b) list all of the files to prove it
+
+    a) jdginn@login:325 rm likes.csv        # Removes likes.csv
+    b) jdginn@login:326 ll
+        total 0
+        drwxr-xr-x 2 jdginn users   6 Feb 13 05:07 ./
+        drwxr-xr-x 8 jdginn users 112 Feb 13 04:59 ../
+
+-------------------------------------------------------------------------------
+11) Change your working directory to ~/practice
+    a) Make a new directory called "mycode" and make it your current directory
+    b) Copy ALL of the files from ~/practice/code to the current directory
+    c) list all of the files to prove it
+
+    a) jdginn@login:329 mkdir mycode        # Creates directory named mycode
+        jdginn@login:330 cd mycode/         # cd into mycode dir
+    b)  jdginn@login:331 cd ~/practice/code     #cd into code directory
+        jdginn@login:333 cp * ~/practice/mycode/        # Copies all files in current directory and pastes in mycode dir.
+    c)  jdginn@login:335 ll
+        total 32
+        drwxr-xr-x 2 jdginn users 146 Feb 13 05:12 ./
+        drwxr-xr-x 9 jdginn users 126 Feb 13 05:08 ../
+        -rw-r--r-- 1 jdginn users  11 Feb 13 05:12 about.html
+        -rw-r--r-- 1 jdginn users  13 Feb 13 05:12 contact.html
+        -rw-r--r-- 1 jdginn users  11 Feb 13 05:12 contact.js
+        -rw-r--r-- 1 jdginn users  10 Feb 13 05:12 home.html
+        -rw-r--r-- 1 jdginn users  10 Feb 13 05:12 index.css
+        -rw-r--r-- 1 jdginn users  11 Feb 13 05:12 index.html
+        -rw-r--r-- 1 jdginn users   9 Feb 13 05:12 index.js
+        -rw-r--r-- 1 jdginn users   9 Feb 13 05:12 main.css
+
+-------------------------------------------------------------------------------
+12) Starting from 11c
+    a) remove all of the html files
+    b) list all of the files to prove it
+
+    a) jdginn@login:336 rm *.html       # Removes all files ending in .html with spat
+    b) jdginn@login:337 ll
+        total 16
+        drwxr-xr-x 2 jdginn users  73 Feb 13 05:15 ./
+        drwxr-xr-x 9 jdginn users 126 Feb 13 05:08 ../
+        -rw-r--r-- 1 jdginn users  11 Feb 13 05:12 contact.js
+        -rw-r--r-- 1 jdginn users  10 Feb 13 05:12 index.css
+        -rw-r--r-- 1 jdginn users   9 Feb 13 05:12 index.js
+        -rw-r--r-- 1 jdginn users   9 Feb 13 05:12 main.css
+
+-------------------------------------------------------------------------------
+13) Starting from 12b
+    a) make the directory called "css"
+    b) move all of the files that end in ".css" to the "css" directory
+    c) list all of the files in css to prove it
+
+    a) jdginn@login:338 mkdir css           # Creates directory named css
+    b) jdginn@login:339 mv *.css css        # Moves all files ending with .css into css directory
+    c) jdginn@login:340 ll css/
+        total 8
+        drwxr-xr-x 2 jdginn users 39 Feb 13 05:16 ./
+        drwxr-xr-x 3 jdginn users 51 Feb 13 05:16 ../
+        -rw-r--r-- 1 jdginn users 10 Feb 13 05:12 index.css
+        -rw-r--r-- 1 jdginn users  9 Feb 13 05:12 main.css
+
+-------------------------------------------------------------------------------
+14) Starting from 13c
+    a) make a directory called "js"
+    b) move all of the files that end in ".js" to the "js" directory
+    c) list all of the files in js to prove it
+
+    a) jdginn@login:342 mkdir js            # Creates directory names js
+    b) jdginn@login:343 mv *.js js          # Moves all files ending with .js into js directory
+    c) jdginn@login:344 ll js/
+        total 8
+        drwxr-xr-x 2 jdginn users 40 Feb 13 05:18 ./
+        drwxr-xr-x 4 jdginn users 27 Feb 13 05:18 ../
+        -rw-r--r-- 1 jdginn users 11 Feb 13 05:12 contact.js
+        -rw-r--r-- 1 jdginn users  9 Feb 13 05:12 index.js
+-------------------------------------------------------------------------------
+15) Starting from 14c
+    a) make a directory called "html"
+    b) copy all of the .html files from ~/practice/code into the html directory
+    c) Show how your organized all of the code files by running the command:
+	tree ~/practice/mycode
+
+    a) jdginn@login:346 mkdir html          # Creates directory named html
+    b) jdginn@login:347 cd ~/practice/code/             # cd into code directory
+        jdginn@login:348 cp *.html ~/practice/mycode/html/          #cp all files ending in .html to html directory
+    c) jdginn@login:349 tree ~/practice/mycode/
+        /home/jdginn/practice/mycode/
+        ├── css
+        │   ├── index.css
+        │   └── main.css
+        ├── html
+        │   ├── about.html
+        │   ├── contact.html
+        │   ├── home.html
+        │   └── index.html
+        └── js
+            ├── contact.js
+            └── index.js
+
+        3 directories, 8 files
+
+
+===============================================================================
+you@login:1036 tree --charset ascii -aF ./practice
+./practice
+|-- .hidden_dir/
+|   `-- not_a_hidden_file
+|-- .hidden_file
+|-- code/
+|   |-- about.html
+|   |-- contact.html
+|   |-- contact.js
+|   |-- home.html
+|   |-- index.css
+|   |-- index.html
+|   |-- index.js
+|   `-- main.css
+|-- database/
+|   |-- frequents
+|   |-- likes
+|   `-- serves
+|-- matter/
+|   |-- mixtures/
+|   |   |-- heterogeneous/
+|   |   |   |-- dirt
+|   |   |   |-- granite
+|   |   |   |-- raisin_bread
+|   |   |   `-- wood
+|   |   `-- homogeneous/
+|   |       |-- gasoline
+|   |       |-- sugar_water
+|   |       `-- vodka
+|   |-- pure/
+|   |   |-- compounds/
+|   |   |   |-- carbon_dioxide
+|   |   |   |-- salt
+|   |   |   |-- sulfuric_acid
+|   |   |   `-- water
+|   |   `-- elements/
+|   |       |-- cadmium
+|   |       |-- carbon
+|   |       |-- curium
+|   |       |-- mercury
+|   |       |-- oxygen
+|   |       |-- palladium
+|   |       |-- sodium
+|   |       `-- uranium
+|   `-- states/
+|       |-- gas
+|       |-- liquid
+|       |-- plasma
+|       `-- solid
+`-- prf/
+    |-- alpha
+    `-- tenlines
+12 directories, 38 files

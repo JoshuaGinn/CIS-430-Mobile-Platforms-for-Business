@@ -1,0 +1,177 @@
+Joshua Ginn, 1:30pm, CIS430
+
+Make Me Rich Calculation Worksheet
+
+One cannot effectively write code without knowing the algorithm first. 
+The objective of this worksheet is to have you think critically about 
+your Make Me Rich algorithm, write it out, and test it out by hand 
+calculations. I do not recommend writing the code (yet), this is about 
+knowing the logic and formulas to generate the calculations.
+
+Use this text file as a template for your work. 
+
+==========================
+Part I: Name all variables
+==========================
+
+1) Name of each of the input variables
+
+a. startingAge
+b. startingSalary
+c. annualRaisePercent
+d. retirementAge
+e. annualSavingsPercent
+f. interestRatePercent
+
+2) Name each of the Summary Output Variables:
+
+a. totalYearsToInvest
+b. retirementFund
+c. lifetimeSalary
+d. totalSaved
+e. earnedInterest
+
+3) Name each of the current year's Detail Output Variables
+
+a. currentAge
+b. currentSalary
+c. currentSavings
+d. currentInterest
+e. currentRetirement
+
+4) Any other variables you need (optional)
+
+a. 
+b. 
+c. 
+
+
+
+
+
+
+====================
+Part II: Pseudocode:
+====================
+
+Write out your logic and formula's to calculate both the detail
+and summary values in terms of the input values. 
+
+Include any loops (can be done with a single loop)
+
+Recommendation: Calculate the detail table values for each year, 
+and accumulate totals for the summary table as you go, 
+at the end of your loop, print the summary table. 
+
+Do not worry that the requirement is to show the summary table first, 
+and the detail table below it, the order of the tables is handled by 
+HTML/CSS. This is just the logic for your JavaScript. 
+
+Ensure you have calculations for each and every one of your 
+detail variables and summary variables
+
+Here is something to get you started:
+
+
+    yearsToInvest = retirementAge - startingAge;
+
+    console.log("Age  Salary  Savings  Interest  Retirement")
+
+    for (let year = startingAge; year <= retirementAge; year++) {
+        
+        if (currentSalary == null)
+            currentSalary = startingSalary
+        else
+            currentSalary = startingSalarycurrentSalary = currentSalary + (currentSalary * annualRaisePercent/100)
+        
+        currentSavings = currentSalary * (annualSavingsPercent/100)
+        
+        if (currentInterest == null) 
+            currentInterest = (currentSavings * (interestRatePercent/100))
+        else
+            currentInterest = (currentRetirement * (interestRatePercent/100)) + (currentSavings * (interestRatePercent/100))
+        
+        if (currentRetirement == null) 
+            currentRetirement = currentSavings + currentInterest
+        else
+            currentRetirement = currentRetirement + currentSavings + currentInterest
+
+        console.log(year, currentSalary, currentSavings, currentInterest, currentRetirement)
+    
+        // 
+        retirementFund = currentRetirement;
+        lifetimeSalary = lifetimeSalary + currentSalary;
+        totalSaved = totalSaved + currentSavings;
+        earnedInterest = earnedInterest + currentInterest;
+
+    }
+
+    console.log(yearsToInvest, ": Years to invest")
+    console.log(retirementFund, ": Retirement Fund")
+    console.log(lifetimeSalary), ": Lifetime Salary")
+    console.log(totalSaved), ": Total Saved")
+    console.log(earnedInterest), ": Earned Interest")
+
+
+
+
+
+
+
+
+============================================
+Part III: First 5 Years Calculations by hand
+============================================
+
+Use you algorithm and logic above to calculate the following scenario:
+
+Starting Age:        25
+Retirement Age:      30
+Starting Salary: 50,000
+Annual Savings:     10%
+Annual Raise:        1%
+Interest Rate:       5%
+
+Age      Salary      Savings       Interest    Retirement
+======== =========== ============= =========== ==============
+25       50,000      5,000         250         5250
+26       50,500      5,050         515         10,815
+27       51,005      5,101         796         16,711
+28       51,515      5,152         1,093       22,956
+29       52,030      5,203         1,408       29,567
+30       52,551      5,255         1,741       36,563
+
+Years to invest: 5
+Retirement Fund: 36,563 
+Lifetime Salary: 307,601 
+Total Saved.   : 30,760 
+Earned Interest: 5,803 
+
+
+
+
+Answer Key to check your algorithm (note: there are two mistakes)
+
+Age      Salary      Savings       Interest    Retirement
+======== =========== ============= =========== ==============
+25            50,000         5,000         250          5,250
+26            50,500         5,050         515         10,815
+27            51,005         5,101         796         16,711
+28            51,515         5,152       1,093         22,956
+29            52,030         5,203       1,508         29,567
+30            52,551         5,255       1,741         36,563
+
+Years to invest:       5
+Retirement Fund:  36,563 
+Lifetime Salary: 307,601
+Total Saved.   :  30,760
+Earned Interest:   6,803
+
+
+What is error 1 in the detail table: 
+    column and age: Interest Column, Age 29
+    correct value:  1,408
+
+What is error 2 in the summary table:
+    Row Label:      Earned Interest
+    Correct Value:  5,803
